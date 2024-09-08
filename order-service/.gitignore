@@ -24,6 +24,3 @@ coverage/
 # Ignore operating system files
 .DS_Store
 Thumbs.db
-
-# Ignore HTTP test files (if they are not essential to the repo)
-*.http
