@@ -1,0 +1,29 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore lock files (if you want to keep lockfiles, you can omit this section)
+package-lock.json
+yarn.lock
+
+# Ignore log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore environment files
+.env
+.env.*.local
+
+# Ignore test result directories
+coverage/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+
+# Ignore HTTP test files (if they are not essential to the repo)
+*.http
