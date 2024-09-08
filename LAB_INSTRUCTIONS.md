@@ -47,7 +47,7 @@ The Visual Studio Code WSL extension lets you use the Windows Subsystem for Linu
 - Go to the Azure portal.
 - Click Create a Resource and select Virtual Machine.
 - Choose the following configurations:
-- Image: Choose Ubuntu 20.04 LTS.
+- Image: Choose Ubuntu 22.04 LTS.
 - Size: Select an appropriate VM size (e.g., B1s) for small-scale testing.
 - Authentication: Use an SSH public key for secure access.
 
