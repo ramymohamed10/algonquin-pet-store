@@ -1,24 +1,21 @@
-# store-front
+# Store-Front
 
-## Project setup
-```
-npm install
-```
+The store-front is the Vue.js frontend that allows users to select products and place orders.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Requirements
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Node.js
+- Vue CLI
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Setup Instructions
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Navigate to the `store-front` directory:
+   ```bash
+   cd store-front
+2. Install dependencies:
+   ```bash
+   npm install
+3. Run the store-front:
+   ```bash
+   npm run serve
+The store-front will be running on http://localhost:8080.

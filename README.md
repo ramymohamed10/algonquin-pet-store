@@ -1,18 +1,19 @@
 # Algonquin Pet Store
 
-Welcome to the **Algonquin Pet Store** application. This repository contains three core components that work together to create a cloud-native microservices architecture using Vue.js, Node.js, Rust, and RabbitMQ.
+Welcome to the **Algonquin Pet Store** application. 
+
+The Algonquin Pet Store is a full-stack web application. It consists of a Vue.js store-front, Node.js order-service, Rust-based product-service, and RabbitMQ for message brokering. These components work together to create a microservices architecture.
+![App UI](./Docs/app-ui.png)
 
 ## Table of Contents
 
 1. [Architecture Overview](#architecture-overview)
-2. [Setup and Prerequisites](#setup-and-prerequisites)
-3. [Running the Services](#running-the-services)
-   - [Store Front](#store-front)
+2. [Setup](#setup)
+   - [RabbitMQ](#rabbitmq) 
    - [Order Service](#order-service)
    - [Product Service](#product-service)
-4. [Running RabbitMQ](#running-rabbitmq)
-5. [Testing the Services](#testing-the-services)
-6. [Common Issues and Troubleshooting](#common-issues-and-troubleshooting)
+   - [Store-Front](#store-front)
+3. [Running the Full Application](#running-the-full-application)
 
 ---
 
@@ -20,18 +21,35 @@ Welcome to the **Algonquin Pet Store** application. This repository contains thr
 
 ![App Architecture](./Docs/app-architecture.png)
 
-This pet store application is built using a microservices architecture with the following components:
+This Algonquin Pet Store application is built using a microservices architecture with the following components:
 
 - **Store Front (Vue.js)**: A front-end application where customers can browse and order products.
 - **Order Service (Node.js)**: Manages customer orders and interacts with RabbitMQ for message queuing.
-- **Product Service (Rust)**: Manages product details and inventory.
-- **RabbitMQ**: Used to queue orders for processing.
+- **Product Service (Rust)**: Handles product listings. Manages product details and inventory.
+- **RabbitMQ**: Message broker for communication between services. Used to queue orders for processing.
+## Setup
+### RabbitMQ
 
-## Setup and Prerequisites
+Follow the instructions in the [RabbitMQ README](RabbitMQ/README.md) to get RabbitMQ running locally.
 
-Before starting, ensure you have the following installed:
+### Order-Service
 
-- [Node.js (v20.x)](https://nodejs.org/)
-- [Rust](https://www.rust-lang.org/tools/install)
-- [RabbitMQ](https://www.rabbitmq.com/download.html) (You can use the provided `install_rabbitmq.sh` script)
+Navigate to the `order-service` folder and follow the instructions in its [Order-Service README](order-service/README.md).
+
+### Product-Service
+
+Navigate to the `product-service` folder and follow the instructions in its [Product-Service README](product-service/README.md).
+
+### Store-Front
+
+Navigate to the `store-front` folder and follow the instructions in its [Store-Front README](store-front/README.md).
+
+## Running the Full Application
+
+Once you have all the services running:
+
+- Visit the store-front on http://localhost:8080
+- The store-front communicates with the product-service and order-service
+- Orders are sent to RabbitMQ for processing
+
 
