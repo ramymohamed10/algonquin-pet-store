@@ -48,11 +48,43 @@ The Visual Studio Code WSL extension lets you use the Windows Subsystem for Linu
 - Click Create a Resource and select Virtual Machine.
 - Choose the following configurations:
 - Image: Choose Ubuntu 22.04 LTS.
-- Size: Select an appropriate VM size (e.g., B1s) for small-scale testing.
+- Size: Select an appropriate VM size (e.g., Standard B2s) for small-scale testing.
 - Authentication: Use an SSH public key for secure access.
 
 Once your VM is created, note down the public IP address for future use.
-### 2.2. Setting Up VS Code for Remote Development on Azure VM
+
+### 2.2. Configure the Network Security Group (NSG)
+After creating the VM, you need to configure the **Network Security Group (NSG)** attached to the VM to allow access to specific ports.
+
+- Go to the **Networking** section of your VM in the Azure portal.
+- Ensure that the **Inbound port rules** and **Outbound port rules** match the following configuration:
+
+#### Inbound Port Rules:
+
+| Priority | Name                     | Port  | Protocol | Source | Destination | Action |
+|----------|--------------------------|-------|----------|--------|-------------|--------|
+| 300      | SSH                       | 22    | TCP      | Any    | Any         | Allow  |
+| 320      | HTTP                      | 80    | TCP      | Any    | Any         | Allow  |
+| 340      | HTTPS                     | 443   | TCP      | Any    | Any         | Allow  |
+| 350      | AllowAnyCustom8080Inbound | 8080  | Any      | Any    | Any         | Allow  |
+| 360      | AllowAnyCustom15672Inbound| 15672 | Any      | Any    | Any         | Allow  |
+| 370      | AllowAnyCustom3000Inbound | 3000  | Any      | Any    | Any         | Allow  |
+| 380      | AllowAnyCustom3030Inbound | 3030  | Any      | Any    | Any         | Allow  |
+| 65000    | AllowVnetInBound          | Any   | Any      | VirtualNetwork | VirtualNetwork | Allow |
+| 65001    | AllowAzureLoadBalancerInBound | Any   | Any      | Any    | AzureLoadBalancer | Allow |
+| 65500    | DenyAllInBound            | Any   | Any      | Any    | Any         | Deny   |
+
+#### Outbound Port Rules:
+
+| Priority | Name               | Port  | Protocol | Source       | Destination | Action |
+|----------|--------------------|-------|----------|--------------|-------------|--------|
+| 65000    | AllowVnetOutBound   | Any   | Any      | VirtualNetwork | VirtualNetwork | Allow  |
+| 65001    | AllowInternetOutBound | Any   | Any      | Any          | Internet    | Allow  |
+| 65500    | DenyAllOutBound     | Any   | Any      | Any          | Any         | Deny   |
+
+Ensure that the security group rules are set up correctly so that necessary services (like SSH, HTTP, and custom application ports) can be accessed.
+
+### 2.3. Setting Up VS Code for Remote Development on Azure VM
 Instead of using a regular SSH terminal, you can use VS Code to remotely access the VM, making it easier to work on files and manage services.
 
 - In VS Code, open the Extensions view (Ctrl + Shift + X). Search for and install the Remote - SSH extension.
@@ -60,16 +92,18 @@ Instead of using a regular SSH terminal, you can use VS Code to remotely access 
 - Add the SSH connection details using the public IP of your Azure VM. VS Code will connect to your VM and open a remote session.
 - You can now work on files, open terminals, and install dependencies directly within VS Code.
 
-### 2.3. Install Dependencies on the VM
+### 2.4. Install Dependencies on the VM
 Once connected to the Azure VM through VS Code:
 - Open a new terminal in VS Code (Ctrl + Shift + P, then type Terminal: Create New Terminal).
-- Install Node.js, Vue cli, npm, Rust and RabbitMQ on the VM and any needed dependencies.
 - Clone the Repository on the VM
-- Follow the instructions in [Algonquin Pet Store README](README.md) to set up the app on your local machine.
+- Follow the instructions in [Algonquin Pet Store README](README.md) to set up the app on your VM.
 - Once all services are running, you can access the app by opening the store-front from your local machine:
     ```bash
     http://<your-vm-ip>:8080
+## Lab Task: Updating API Endpoints
+As you prepare to run your Algonquin Pet Store application on an Azure Virtual Machine (VM), you might run into an issue with the front-end Vue.js application failing to fetch data from the backend services (Order and Product services). The current implementation works locally because the APIs are hosted at localhost, but when deployed to an Azure VM, localhost in the browser context will no longer point to the services running on the server.
 
+**Figure out how to resolve this issue.**
 ## Conclusion
 In this lab, you have:
 - Set up and run the application locally using VS Code (with WSL for Windows users).

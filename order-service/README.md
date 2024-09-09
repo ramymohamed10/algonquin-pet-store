@@ -9,16 +9,22 @@ The order-service handles incoming orders from the store-front and sends them to
 - RabbitMQ
 
 ## Setup Instructions
-1. Install Node.js and npm
+1. Update the package list:
+   ```bash
+   sudo apt update
+2. Install the NodeSource repository for Node.js 20: First, download and add the NodeSource repository for Node.js 20.x.
+   ```bash
+   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+3. Install Node.js and npm
    ```bash
    sudo apt install -y nodejs npm
-2. Navigate to the `order-service` directory:
+4. Navigate to the `order-service` directory:
    ```bash
    cd order-service
-3. Install dependencies:
+5. Install dependencies:
    ```bash
    npm install
-4. Run the service:
+6. Run the service:
    ```bash
    node index.js 
 The service will be running on http://localhost:3000.

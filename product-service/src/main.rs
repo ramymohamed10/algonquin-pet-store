@@ -17,5 +17,5 @@ async fn main() {
         })
         .with(cors);
 
-    warp::serve(products).run(([127, 0, 0, 1], 3030)).await;
+    warp::serve(products).run(([0, 0, 0, 0], 3030)).await;
 }
