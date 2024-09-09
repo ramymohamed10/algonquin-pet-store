@@ -8,7 +8,7 @@ RabbitMQ is used as the message broker for this application. It handles communic
 
 ## Setup Instructions
 
-1. Follow the official RabbitMQ installation guide: https://www.rabbitmq.com/docs/download
+1. Follow the official RabbitMQ installation guide: https://www.rabbitmq.com/docs/install-debian#apt-quick-start-cloudsmith
 2. Once Installed, start RabbitMQ:
    ```bash
    sudo systemctl start rabbitmq-server  
