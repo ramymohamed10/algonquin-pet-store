@@ -8,11 +8,16 @@ The product-service is responsible for providing the product catalog. It's built
 - Cargo
 
 ## Setup Instructions
-
-1. Navigate to the `product-service` directory:
+1. Install Rust
+   ```bash
+   curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+2. Add the Rust toolchain directory to the PATH environment variable,
+   ```bash
+   source "$HOME/.cargo/env"
+3. Navigate to the `product-service` directory:
    ```bash
    cd product-service
-2. Install dependencies:
+4. Install dependencies:
    ```bash
    cargo run
 The service will be running on http://localhost:3030.
