@@ -17,7 +17,8 @@ The order-service handles incoming orders from the store-front and sends them to
    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 3. Install Node.js and npm
    ```bash
-   sudo apt install -y nodejs npm
+   sudo apt update
+   sudo apt install -y nodejs
 4. Navigate to the `order-service` directory:
    ```bash
    cd order-service
