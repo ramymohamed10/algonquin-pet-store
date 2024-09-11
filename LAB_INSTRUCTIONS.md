@@ -1,6 +1,15 @@
 # Lab 1: Running the Algonquin Pet Store Locally and on an Azure VM
 
-Welcome to the first lab of the **CST8915 Full-stack Cloud-native Development**. In this lab, you will learn how to run the app locally on your machine, and then deploy it to an Azure Virtual Machine.
+Welcome to the first lab of the **CST8915 Full-stack Cloud-native Development**. In this lab, you will learn how to run the Algonquin Pet Store locally on your machine, and then deploy it to an Azure Virtual Machine. This hands-on exercise will teach you how to run a multi-service application and work with cloud deployment.
+
+## Pre-Lab Instructions:
+Before attending the lab, it is recommended to complete the following tasks:
+- Read [Algonquin Pet Store README](README.md)
+- Examine and understand the Algonquin Pet Store architecture.
+
+
+## Important Note for Students:
+Before you start the lab, **please read through the entire instructions carefully.** It is important to understand the flow and requirements fully before beginning the tasks. If you are working in a group, make sure all team members are familiar with the instructions and assigned responsibilities.
 
 ## Lab Objectives:
 - Set up and run the application on your local machine.
@@ -22,6 +31,8 @@ We recommend that students work in **groups of 4** for this lab. This will help 
 - **Azure Account**: Make sure you have access to a Microsoft Azure account.
 - **VS Code**: Install [Visual Studio Code](https://code.visualstudio.com/).
 - **WSL (Windows Users)**: If you're using Windows, it is recommended to use **Windows Subsystem for Linux (WSL)** for your development environment.
+
+**Note:** For step-by-step instructions on setting up Node.js, Vue CLI, and Rust, refer to the [Algonquin Pet Store README](README.md).
 
 ---
 
