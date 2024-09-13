@@ -1,6 +1,6 @@
 # Product Service
 
-The product-service is responsible for providing the product catalog. It's built using Rust.
+The Product Service is a simple web service built using Rust and the Warp web framework. It is responsible for serving the product catalog, which includes a list of products that can be fetched via a RESTful API.
 
 ## Requirements
 
@@ -12,6 +12,7 @@ The product-service is responsible for providing the product catalog. It's built
    ```bash
    sudo apt update
 2. Install the build-essential package, which includes gcc and other essential build tools
+
    ```bash
    sudo apt install build-essential
 3. Install Rust
